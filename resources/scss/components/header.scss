@@ -1,0 +1,33 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 25px;
+    color: var(--compl-2);
+    font-weight: bold;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    img{
+        width: 140px;
+        height: 110px;
+        @media (max-width:600px) {
+            &{
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+    padding: 30px;
+    margin-top: 20px;
+    @media (max-width:600px) {
+        &{
+            padding: 0;
+            font-size: 18px;
+        }
+    }
+}

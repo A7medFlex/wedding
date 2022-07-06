@@ -1,0 +1,86 @@
+.container.slider{
+    margin-top: 30px;
+}
+.swiper-slide {
+    margin: 0 2px;
+}
+.swiper {
+    width: 700px;
+    height: 350px;
+    padding: 10px !important;
+    @media (max-width:730px) {
+        width: 100%;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: var(--compl-2);
+    }
+    .swiper-pagination-bullet-active {
+        background-color: var(--compl-2);
+    }
+}
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: 25px !important;
+}
+.div1 {
+    height: 100%;
+    background-color: #eb8b7012;
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    .review{
+        flex: 1;
+        display: grid;
+        place-content: center;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+    .userdetails {
+        display: flex;
+        margin-bottom: 18px;
+        .img{
+            font-size: 32px;
+            color: var(--compl-2);
+            outline: 2px solid var(--compl-2);
+            padding: 6px;
+            border-radius: 50%;
+            margin-left: 15px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+        }
+        .rate{
+            margin-top: 9px;
+           span.fill{
+            color: gold;
+           }
+           span.empty{
+            color: #80808091;
+           }
+        }
+        .detbox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .name{
+                color: var(--dominant-bmode-color);
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+}
+.swiper-rtl  .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    content: 'next';
+    font-size: 28px;
+    font-weight: bold;
+    @media (max-width:730px) {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,248 @@
+.container.rating {
+    padding: 20px;
+    @media (max-width:600px) {
+        padding: 20px 10px;
+    }
+    form {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    background-color: #da4b2212;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+        .form{
+            width: 80%;
+            margin-inline: auto;
+            @media (max-width: 400px) {
+                width: 95%;
+            }
+            @media (min-width: 400px) and (max-width: 768px) {
+                width: 90%;
+            }
+            .input-field {
+                &.adjusted {
+                    width: 100%;
+                    margin-top: 10px;
+                    height: 300px;
+                }
+                textarea {
+                    outline: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #333;
+                    border-radius: 5px;
+                    border: 1px solid #aaa;
+                    margin: 8px 0;
+                    resize: none;
+                    padding: 10px;
+                    width: 100%;
+                    height: 100%;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    -ms-border-radius: 5px;
+                    -o-border-radius: 5px;
+                }
+                .rate {
+                    float: left;
+                    height: 45px;
+                    padding: 5px 0px;
+                    width: fit-content;
+                }
+                .rate:not(:checked) > input {
+                    position: absolute;
+                    // top: -9999px;
+                    opacity: 0;
+                }
+                .rate:not(:checked) > label {
+                    float: left;
+                    width: 1em;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    font-size: 30px;
+                    color: #ccc;
+                }
+                .rate:not(:checked) > label:before {
+                    content: "★ ";
+                }
+                .rate > input:checked ~ label {
+                    color: #ffc700;
+                }
+                .rate:not(:checked) > label:hover,
+                .rate:not(:checked) > label:hover ~ label {
+                    color: #ffc700;
+                }
+                .rate > input:checked + label:hover,
+                .rate > input:checked + label:hover ~ label,
+                .rate > input:checked ~ label:hover,
+                .rate > input:checked ~ label:hover ~ label,
+                .rate > label:hover ~ input:checked ~ label {
+                    color: #ffc700;
+                }
+            }
+        }
+    }
+}
+.container.rating header {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dominant-bmode-color);
+    width: fit-content;
+    padding: 10px;
+    margin-inline: auto;
+}
+.container.rating header::before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: -5px;
+    height: 3px;
+    width: 30px;
+    border-radius: 8px;
+    background-color: var(--compl-2);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+.container.rating form {
+    margin-top: 30px;
+    min-height: fit-content;
+}
+.container.rating form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .input-field {
+    display: flex;
+    width: calc(100% / 2 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-field label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.input-field input,
+select {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+.input-field input :focus,
+.input-field select:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+.input-field select,
+.input-field input[type="date"] {
+    color: #707070;
+}
+.input-field input[type="date"]:valid {
+    color: #333;
+}
+.container.rating form button,
+.backBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: var(--compl-2);
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.container.rating form .btnText {
+    font-size: 14px;
+    font-weight: 400;
+}
+form button:hover {
+    background-color: #265df2;
+}
+form button i,
+form .backBtn i {
+    margin: 0 6px;
+}
+form .backBtn i {
+    transform: rotate(180deg);
+}
+form .buttons {
+    display: flex;
+    align-items: center;
+}
+form .buttons button,
+.backBtn {
+    margin-right: 14px;
+}
+
+@media (max-width: 750px) {
+    .container.rating form {
+        overflow-y: scroll;
+    }
+    .container.rating form::-webkit-scrollbar {
+        display: none;
+    }
+    form .fields .input-field {
+        width: calc(100% / 2 - 15px);
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field {
+        width: 100%;
+    }
+}
+#danger{
+    font-size: 14px;
+    bottom: -31px;
+    color: var(--compl-2);
+    font-weight: 700;
+}
+@keyframes fade-out {
+    0%{
+        opacity: 1;
+        display: block;
+    }90%{
+        opacity: 0;
+        display: none;
+    }100%{
+        opacity: 0;
+        display: none;
+    }
+}
+#rated{
+    background-color: #da4b22d6;
+    padding: 16px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    color: var(--dominant-wmode-color);
+    width: fit-content;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    animation: fade-out 6s ease-out forwards;
+    -webkit-animation: fade-out 6s ease-out forwards;
+    position: fixed;
+    top: 50px;
+    left: 20px;
+}
