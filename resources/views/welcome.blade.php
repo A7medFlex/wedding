@@ -12,6 +12,9 @@
         <div class="header">
             <div class="logo">أوتار ..</div>
             <ul>
+                @auth
+                    <li><a href="/dashboard">لوحة التحكم</a></li>
+                @endauth
                 <li><a href="#opinion">أراء العملاء</a></li>
                 <li><a href="#rateus">قيمنا</a></li>
                 <li><a href="#connect">تواصل معنا</a></li>
