@@ -8,6 +8,7 @@
     width: 700px;
     height: 350px;
     padding: 10px !important;
+    margin-top: 20px;
     @media (max-width:730px) {
         width: 100%;
     }
@@ -39,21 +40,26 @@
         place-content: center;
         margin-bottom: 30px;
         padding: 0 15px;
+        font-weight: 600;
+        font-size: 18px;
+        text-align: center;
     }
     .userdetails {
         display: flex;
         margin-bottom: 18px;
         .img{
-            font-size: 32px;
-            color: var(--compl-2);
-            outline: 2px solid var(--compl-2);
-            padding: 6px;
-            border-radius: 50%;
-            margin-left: 15px;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
+            i{
+                font-size: 32px;
+                color: var(--compl-2);
+                border: 2px solid var(--compl-2);
+                padding: 10px;
+                border-radius: 50%;
+                margin-left: 15px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+            }
         }
         .rate{
             margin-top: 9px;

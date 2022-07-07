@@ -29,9 +29,15 @@ button{
     background-color: var(--compl-2);
     color: var(--dominant-wmode-color)
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: var(--dominant-wmode-color);
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Tajawal', sans-serif;
+    &.special{
+        background-color: f2f2f291;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -66,3 +72,41 @@ body{
     }
 }
 
+div.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    min-height: 12vh;
+    margin: 0 10px;
+
+    div.logo{
+        font-size: 40px;
+        font-weight: bold;
+        color: var(--compl-2);
+        text-shadow: 0px 0px 30px var(--compl-2);
+        @media (max-width:600px) {
+            font-size: 34px;
+        }
+    }
+    ul{
+        margin-top: 20px;
+        li{
+            margin: 5px 0;
+            font-size: 20px;
+            @media (max-width:600px) {
+                font-size: 18px;
+            }
+            &:hover{
+                a{
+                    color: var(--compl-2);
+                }
+            }
+            a{
+                color: var(--dominant-bmode-color);
+                font-weight: 500;
+                border-bottom: 1px solid var(--dominant-bmode-color);
+            }
+        }
+    }
+}

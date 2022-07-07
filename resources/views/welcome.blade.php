@@ -9,22 +9,29 @@
                 {{session('success')}}
             </div>
         @endif
-        <header>
-            <span class="logo"><img src="https://i.im.ge/2022/07/07/u3Pd5p.png" alt=""></span>
-            <p>قاعة أوتار للحفلات والمناسبات</p>
-            <span class="logo"><img src="https://i.im.ge/2022/07/07/u3Pd5p.png" alt=""></span>
-        </header>
+        <div class="header">
+            <div class="logo">أوتار ..</div>
+            <ul>
+                <li><a href="#opinion">أراء العملاء</a></li>
+                <li><a href="#rateus">قيمنا</a></li>
+                <li><a href="#connect">تواصل معنا</a></li>
+            </ul>
+        </div>
 
         <div class="container gallery">
             <div class="image-grid">
-                <img class="image-grid-col-2 image-grid-row-2" src="https://images.unsplash.com/photo-1568574437205-11a959e9df9c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d3JhdGh8ZW58MHx8MHx8&w=1000&q=80" alt="architecture">
-                <img src="https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="architecture">
-                <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80" alt="architecture">
-                <img src="https://media.istockphoto.com/photos/villefranche-on-sea-in-evening-picture-id1145618475?k=20&m=1145618475&s=612x612&w=0&h=_mC6OZt_eWENYUAZz3tLCBTU23uvx5beulDEZHFLsxI=" alt="architecture">
-                <img src="https://st.depositphotos.com/1609126/3295/i/600/depositphotos_32954869-stock-photo-niagara-falls.jpg" alt="architecture">
-              </div>
+                @foreach ($images as $image)
+                    @if ($loop->first)
+                        <img class="image-grid-col-2 image-grid-row-2 " src="{{ $image->image }}" alt="architecture">
+                    @else
+                        <img class="" src="{{ $image->image }}" alt="architecture">
+                    @endif
+                @endforeach
+            </div>
         </div>
-        <div class="container slider">
+        <div class="container slider" id="opinion">
+            <h3 class="client">أراء العملاء</h3>
+
             <!-- Slider main container -->
             <div class="swiper">
                 <!-- Additional required wrapper -->
@@ -76,9 +83,15 @@
                                 </div>
                             </div>
                             </div>
-                            <div class="review">
-                                {{ $rating->notes }}
-                            </div>
+                            @if ($rating->notes)
+                                <div class="review">
+                                    {{ $rating->notes }}
+                                </div>
+                            @else
+                                <div class="review">
+                                   لم يتم ادخال اي ملاحظات
+                                </div>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -95,8 +108,8 @@
             </div>
         </div>
         {{-- rating form  --}}
-        <div class="container rating">
-            <header>تقييم قاعة أوتار</header>
+        <div class="container rating" id="rateus">
+            <h3 class="client">قيمنا</h3>
             <form action="{{ route('rate') }}" method="POST">
                 @csrf
                 @method('POST')
@@ -142,6 +155,30 @@
                 </div>
             </form>
         </div>
+
+        <footer id="connect">
+            <h3 class="client">تواصل معنا</h3>
+            <div class="container" style="margin-top: 30px;">
+                <div class="gr">
+                    <p>موقع الصالة:</p>
+                    <p>{{ $details->location }}</p>
+                </div>
+                <div class="gr">
+                    <p>التواصل:</p>
+                    <p>{{ $details->phoneone }}</p>
+                    @if($details->phonetwo)
+                        <p>{{ $details->phonetwo }}</p>
+                    @endif
+                </div>
+                <div class="gr">
+                    <p>تجدنا ايضا هنا:</p>
+                    <div class="social-icons">
+                        <a href="{{ $details->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $details->snapchat }}" target="_blank"><i class="fab fa-snapchat-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
         <script src="/js/main.js"></script>

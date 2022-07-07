@@ -12,7 +12,7 @@ class RateController extends Controller
         $request->validate([
             'name' => 'required|string|min:2|max:255',
             'rating' => 'required|max:1',
-            'notes' => 'required|string|min:2|max:255',
+            'notes' => 'nullable|string',
         ]);
 
         Ratings::create([

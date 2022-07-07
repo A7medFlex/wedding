@@ -1,0 +1,26 @@
+nav ul.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: fit-content;
+}
+nav ul.pagination li span, nav ul.pagination li a{
+    color: var(--dominant-wmode-color);
+    font-size: 15px;
+    background-color: var(--compl-2);
+    border-radius: 17px;
+    margin-left: 5px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    -ms-border-radius: 17px;
+    -o-border-radius: 17px;
+    padding: 5px;
+    display: inline-block;
+}
+
+nav ul.pagination li.active span{
+    color: var(--compl-2);
+    background-color: #cbccce;
+    outline: 2px solid var(--compl-2);
+}

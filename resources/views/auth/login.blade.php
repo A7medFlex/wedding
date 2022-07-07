@@ -1,4 +1,57 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<x-styles title="تسجيل دخول"></x-styles>
+
+<body>
+
+    <div class="container login">
+        <div class="forms">
+            <div class="form-login">
+                <span class="title">تسجيل دخول</span>
+
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="input-field-login">
+                        <input type="email" name="email" placeholder="البريد الالكتروني" required >
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="input-field-login">
+                        <input name="password" type="password" class="password" placeholder="كلمة المرور" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input name="remember" type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">تذكرني</label>
+                        </div>
+                    </div>
+
+                    @if ($errors->any())
+                        <div>
+                            <ul class="err">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="input-field-login button">
+                        <button type="submit">تسجيل دخول</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
+
+{{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -53,4 +106,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-guest-layout> --}}

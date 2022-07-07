@@ -1,0 +1,75 @@
+footer{
+    margin-top: 40px;
+    padding: 0 25px;
+    overflow: hidden;
+    .container{
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        @media (max-width:740px) {
+            grid-template-columns: repeat(2,1fr);
+        }
+        .gr{
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            align-items: center;
+            &:last-child{
+                align-items: center;
+                @media (max-width:740px) {
+                    &{
+                        margin-top: 40px;
+                    }
+                }
+            }
+            a{
+                margin-bottom: 30px;
+                font-size: 17px;
+                font-weight: 500;
+                color: var(--dominant-bmode-color);
+                &:hover{
+                    text-decoration: underline;
+                }
+                transition: transform .2s ease;
+                -webkit-transition: transform .2s ease;
+                -moz-transition: transform .2s ease;
+                -ms-transition: transform .2s ease;
+                -o-transition: transform .2s ease;
+                }
+            p{
+                &:first-child{
+                    color: var(--compl-2);
+                }
+                font-size: 20px;
+                font-weight: 500;
+                color: var(--dominant-bmode-color);
+                margin-bottom: 25px;
+            }
+
+            .social-icons{
+                display: flex;
+                a{
+                    &:not(:first-child){
+                        margin:0 5px;
+                    }
+                    i{
+
+                        font-size: 30px;
+                        background-color: #6c6b6b;
+                        color: var(--dominant-wmode-color);
+                        padding: 8px;
+                        border-radius: 25px;
+                        -webkit-border-radius: 25px;
+                        -moz-border-radius: 25px;
+                        -ms-border-radius: 25px;
+                        -o-border-radius: 25px;
+                        &:hover{
+                            background-color: var(--compl-2);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

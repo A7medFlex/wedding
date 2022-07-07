@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ratings', function (Blueprint $table) {
+        Schema::create('details', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('rating');
-            $table->string('notes')->nullable();
-            $table->boolean('hide')->default(false);
+            $table->text('location')->nullable();
+            $table->text('phoneone')->nullable();
+            $table->text('phonetwo')->nullable();
+            $table->text('snapchat')->nullable();
+            $table->text('instagram')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ratings');
+        Schema::dropIfExists('details');
     }
 };

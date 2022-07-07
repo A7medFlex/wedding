@@ -4,6 +4,7 @@
 /public/storage
 /storage/*.key
 /vendor
+githubtoken.txt
 .env
 .env.backup
 .phpunit.result.cache
