@@ -156,37 +156,39 @@
             </form>
         </div>
 
-        <footer id="connect">
-            <h3 class="client">تواصل معنا</h3>
-            <div class="container" style="margin-top: 30px;">
-                <div class="gr">
-                    <p>موقع الصالة:</p>
-                    @if ($details->location)
-                        <p>{{ $details->location }}</p>
-                    @endif
-                </div>
-                <div class="gr">
-                    <p>التواصل:</p>
-                    @if ($details->phoneone)
-                        <p>{{ $details->phoneone }}</p>
-                    @endif
-                    @if($details->phonetwo)
-                        <p>{{ $details->phonetwo }}</p>
-                    @endif
-                </div>
-                <div class="gr">
-                    <p>تجدنا ايضا هنا:</p>
-                    <div class="social-icons">
-                        @if ($details->instagram)
-                            <a href="{{ $details->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                        @endif
-                        @if ($details->snapchat)
-                            <a href="{{ $details->snapchat }}" target="_blank"><i class="fab fa-snapchat-square"></i></a>
+        @if ($details)
+            <footer id="connect">
+                <h3 class="client">تواصل معنا</h3>
+                <div class="container" style="margin-top: 30px;">
+                    <div class="gr">
+                        <p>موقع الصالة:</p>
+                        @if ($details->location)
+                            <p>{{ $details->location }}</p>
                         @endif
                     </div>
+                    <div class="gr">
+                        <p>التواصل:</p>
+                        @if ($details->phoneone)
+                            <p>{{ $details->phoneone }}</p>
+                        @endif
+                        @if($details->phonetwo)
+                            <p>{{ $details->phonetwo }}</p>
+                        @endif
+                    </div>
+                    <div class="gr">
+                        <p>تجدنا ايضا هنا:</p>
+                        <div class="social-icons">
+                            @if ($details->instagram)
+                                <a href="{{ $details->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                            @endif
+                            @if ($details->snapchat)
+                                <a href="{{ $details->snapchat }}" target="_blank"><i class="fab fa-snapchat-square"></i></a>
+                            @endif
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        @endif
 
         <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
         <script src="/js/main.js"></script>
