@@ -1,109 +1,45 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<x-styles title="تسجيل دخول"></x-styles>
-
-<body>
-
-    <div class="container login">
-        <div class="forms">
-            <div class="form-login">
-                <span class="title">تسجيل دخول</span>
-
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <div class="input-field-login">
-                        <input type="email" name="email" placeholder="البريد الالكتروني" required >
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="input-field-login">
-                        <input name="password" type="password" class="password" placeholder="كلمة المرور" required>
-                        <i class="fas fa-lock"></i>
-                    </div>
-
-                    <div class="checkbox-text">
-                        <div class="checkbox-content">
-                            <input name="remember" type="checkbox" id="logCheck">
-                            <label for="logCheck" class="text">تذكرني</label>
-                        </div>
-                    </div>
-
-                    @if ($errors->any())
-                        <div>
-                            <ul class="err">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <div class="input-field-login button">
-                        <button type="submit">تسجيل دخول</button>
-                    </div>
-                </form>
-            </div>
-
+@extends('layouts.app')
+@section('title','Log in')
+@section('auth_content')
+    <h3>تسجيل دخول</h3>
+    <form action="{{ route('login') }}" method="POST">
+        @csrf
+        @method('POST')
+        <div class="errors">
+            @if ($errors->all())
+                @foreach ($errors->all() as $err)
+                    <div class="error">{{ $err }}</div>
+                @endforeach
+            @endif
         </div>
-    </div>
-    <script src="/js/main.js"></script>
-</body>
-
-</html>
-
-{{-- <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
+        @if (session('status'))
             <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                {{ session('status') }}
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+        @endif
+        <div class="back">
+            <i class="fal fa-arrow-left"></i>
+        </div>
+        <div class="auth_form">
+            <div class="field active">
+                <i class="fal fa-envelope-square"></i>
+                <input type="email" name="email" placeholder="البريد الالكتروني" required autofocus>
+                <i class="fas fa-arrow-down"></i>
             </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
+            <div class="field inactive">
+                <i class="fas fa-key"></i>
+                <input type="password" name="password" placeholder="كلمة المرور" required>
+                <i class="fas fa-arrow-down"></i>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
+            <div class="field inactive">
+                <button type="submit" disabled aria-hidden="true">تسجيل الدخول</button>
             </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout> --}}
+        </div>
+
+        <div class="remember-me">
+            <input type="checkbox" name="remember">
+            <span style='margin-left:0;margin-right:10px;'>تذكرني</span>
+        </div>
+
+    </form>
+@endsection
