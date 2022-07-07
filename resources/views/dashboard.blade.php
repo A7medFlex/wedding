@@ -8,10 +8,10 @@
         <div class="header">
             <div class="logo">أوتار ..</div>
             <ul>
+                <li><a href="/dashboard">تقييمات العملاء</a></li>
                 <li><a href="/">الرئيسية</a></li>
                 <li><a href="/images">تعديل صور الصالة</a></li>
                 <li><a href="/details">تعديل بيانات الصالة</a></li>
-                <li><a href="/dashboard">تقييمات العملاء</a></li>
             </ul>
         </div>
         <div class="container data">
