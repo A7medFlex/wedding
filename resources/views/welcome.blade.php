@@ -161,11 +161,15 @@
             <div class="container" style="margin-top: 30px;">
                 <div class="gr">
                     <p>موقع الصالة:</p>
-                    <p>{{ $details->location }}</p>
+                    @if ($details->location)
+                        <p>{{ $details->location }}</p>
+                    @endif
                 </div>
                 <div class="gr">
                     <p>التواصل:</p>
-                    <p>{{ $details->phoneone }}</p>
+                    @if ($details->phoneone)
+                        <p>{{ $details->phoneone }}</p>
+                    @endif
                     @if($details->phonetwo)
                         <p>{{ $details->phonetwo }}</p>
                     @endif
@@ -173,8 +177,12 @@
                 <div class="gr">
                     <p>تجدنا ايضا هنا:</p>
                     <div class="social-icons">
-                        <a href="{{ $details->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="{{ $details->snapchat }}" target="_blank"><i class="fab fa-snapchat-square"></i></a>
+                        @if ($details->instagram)
+                            <a href="{{ $details->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                        @endif
+                        @if ($details->snapchat)
+                            <a href="{{ $details->snapchat }}" target="_blank"><i class="fab fa-snapchat-square"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
